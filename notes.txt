@@ -1,1 +1,76 @@
 A lil number guesser game.
+
+1. First we import random. This is a part of python's library.
+
+**Special
+- We are able to grab other libraries, but we must install them
+in the terminal first.
+
+2. Then we use random. Like this:
+random.randrange(start, end)
+The start is inclusive, and the end does not include that number.
+Like this -> [0, 11)
+
+**Special
+- randrange has the upper bound
+- randint includes both numbers.
+
+**Special
+- make sure to convert the answer to an int when you check it with the random int.
+- incorporate a while loop
+
+3. Let's ask the user for the top of the range.
+4. Check if the input is a digit.
+5. Check if its above 0.
+6. Assign a random number using this top of range.
+7. Ask for the user's input.
+8. Create a while loop to keep asking the user for the input.
+
+**Special
+This will not work:
+
+answer = input("What do you think the number is? ")
+
+while int(answer) != random_number:
+    answer = input("Nope! Guess again: ")
+
+This is because we aren't checking if the user types something that's not a digit.
+So we do this instead:
+
+9. Have the while loop be 'while True:'
+10. Ask the user for the input.
+11. Check to see if digit.
+12. Check to see if they guess the number.
+13. Should look like this:
+while True:
+    user_guess = input("Take a guess: ")
+    if user_guess.isdigit():
+        user_guess = int(user_guess)
+    else:
+        print("Please time a number next time.")
+        continue
+
+    if user_guess == random_number:
+        print("You got it!")
+        break
+    else:
+        print("You got it wrong!")
+
+14. Let's add a feature that counts how many times the person guesses wrong.
+15. We just initialize the guess variable before the while loop,
+and increment it inside the loop.
+16. We can print the guesses at the end like this:
+
+print("You got it in", guesses, "guesses")
+
+17. We can add an element to tell them whether their guess is greater
+than or less than the answer. Like this:
+
+    if user_guess == random_number:
+        print("You got it!")
+        break
+    elif user_guess > random_number:
+        print("You were above the number.")
+    else:
+        print("You are below the number.")
+
